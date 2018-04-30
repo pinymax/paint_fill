@@ -1,8 +1,8 @@
 require 'pp'
 
-def fill(screen, x, y, color, basecolor = nil)
+def fill(screen, x, y, color)
   pp "Coordinates outside the image area" and return if coordinates_is_out_of_pictures_range(screen, x, y)
-  basecolor ||= screen[y][x]
+  basecolor = screen[y][x]
   fill_adjacent_pixels(screen, x, y, color, basecolor)
   pp screen
 end
@@ -46,5 +46,5 @@ picture0 = [[0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
-# fill(picture, 12, 1, 9)
-fill(picture0, 2, 0, 4)
+fill(picture, 0, 0, 9)
+# fill(picture0, 2, 0, 4)
