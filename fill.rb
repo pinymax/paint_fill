@@ -9,13 +9,13 @@ end
 
 def fill_adjacent_pixels(screen, x, y, color, basecolor)
   screen[y][x] = color
-  if (screen[0][x - 1] == basecolor) && (x != 0)
+  if (screen[y][x - 1] == basecolor) && (x != 0)
     fill_adjacent_pixels(screen, x - 1, y, color, basecolor)
   end
-  if (screen[y - 1][0] == basecolor) && (y != 0)
+  if (screen[y - 1][x] == basecolor) && (y != 0)
     fill_adjacent_pixels(screen, x, y - 1, color, basecolor)
   end
-  if (x != screen[0].size - 1) && (screen[y][x + 1] == basecolor)
+  if (x != screen[y].size - 1) && (screen[y][x + 1] == basecolor)
     fill_adjacent_pixels(screen, x + 1, y, color, basecolor)
   end
   if (y != screen.size - 1) && (screen[y + 1][x] == basecolor)
@@ -36,5 +36,15 @@ picture = [[0, 4, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
            [0, 0, 3, 3, 3, 1, 0, 0, 0, 0, 0, 0, 1],
            [0, 0, 0, 0, 8, 1, 1, 1, 1, 1, 1, 1, 1]]
 
-fill(picture, 12, 1, 9)
-fill(picture, 2, 0, 4)
+
+picture0 = [[0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+
+# fill(picture, 12, 1, 9)
+fill(picture0, 2, 0, 4)
